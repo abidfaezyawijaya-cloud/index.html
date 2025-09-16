@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abid Wijaya Teknik — Solusi Las & Fabrikasi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    /* RESET & GLOBAL */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #F8F9FA;
+      color: #2B2D42;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #E63946;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+    }
+
+    header.scrolled {
+      background: #1D3557;
+    }
+
+    header.scrolled .nav-link,
+    header.scrolled .btn {
+      color: white;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #E63946;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: #2B2D42;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #E63946;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('https://images.unsplash.com/photo-1595341888018-52429d73f0ce?ixlib=rb-4.0.3') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #1D3557;
+    }
+
+    /* LAYANAN */
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: #1D3557;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #E63946;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      color: #E63946;
+      margin-bottom: 20px;
+    }
+
+    /* GALERI */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(29, 53, 87, 0.85);
+      color: white;
+      padding: 15px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+
+    /* TENTANG */
+    .about {
+      background: white;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #1D3557;
+    }
+
+    /* TESTIMONI */
+    .testimonials {
+      background: #1D3557;
+      color: white;
+      text-align: center;
+    }
+
+    .testimonial {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: #F1FAEE;
+    }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #E63946, #1D3557);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .cta-form input,
+    .cta-form select {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 50px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .cta-form .btn {
+      background: #F1FAEE;
+      color: #1D3557;
+      font-weight: 700;
+    }
+
+    .cta-form .btn:hover {
+      background: white;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #2B2D42;
+      color: #F1FAEE;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #E63946;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a {
+      color: #F1FAEE;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover {
+      color: #E63946;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #E63946;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+    }
+
+    /* FLOATING WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 999;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none; /* Untuk versi mobile, bisa ditambahkan hamburger menu JS */
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .about-img {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container nav-container">
+      <a href="#" class="logo">Abid Wijaya Teknik</a>
+      <nav class="nav-menu">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Layanan</a>
+        <a href="#" class="nav-link">Galeri</a>
+        <a href="#" class="nav-link">Tentang</a>
+        <a href="#" class="nav-link">Kontak</a>
+      </nav>
+      <a href="#kontak" class="btn">Pesan Sekarang</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>BENGKEL LAS PROFESIONAL</h1>
+      <p>Kuat, Presisi, dan Tepat Waktu — Melayani Fabrikasi Besi, Pagar, Kanopi, Tangga, dan Custom Project</p>
+      <div class="hero-btns">
+        <a href="#galeri" class="btn btn-outline">Lihat Portofolio</a>
+        <a href="#kontak" class="btn">Hubungi Kami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Layanan -->
+  <section id="layanan">
+    <div class="container">
+      <div class="section-title">
+        <h2>Layanan Kami</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🛠️</div>
+          <h3>Fabrikasi Besi Custom</h3>
+          <p>Pintu, jendela, railing, struktur bangunan, dan kebutuhan custom sesuai desain Anda.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏗️</div>
+          <h3>Konstruksi & Instalasi</h3>
+          <p>Tim profesional kami siap melakukan pemasangan di lokasi dengan aman dan rapi.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Perbaikan & Modifikasi</h3>
+          <p>Las ulang, perkuatan struktur, modifikasi mesin, atau perbaikan kerusakan logam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeri -->
+  <section id="galeri">
+    <div class="container">
+      <div class="section-title">
+        <h2>Galeri Proyek</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="gambar/contoh 1.jpeg" alt="Proyek 1">
+          <div class="gallery-overlay">
+            <h4>Pagar Minimalis</h4>
+            <p>Jakarta Selatan</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="gambar/contoh 3.jpg" alt="Proyek 2">
+          <div class="gallery-overlay">
+            <h4>Kanopi Carport</h4>
+            <p>Bekasi</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="gambar/tangga estetik.jpg" alt="Proyek 3">
+          <div class="gallery-overlay">
+            <h4>Tangga Besi Artistik</h4>
+            <p>Bandung</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="gambar/reling.jpeg" alt="Proyek 4">
+          <div class="gallery-overlay">
+            <h4>Railing Balkon</h4>
+            <p>Tangerang</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang -->
+  <section class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tim Abid Wijaya Teknik">
+        </div>
+        <div class="about-text">
+          <h3>Tentang Abid Wijaya Teknik</h3>
+          <p>Lebih dari 10 tahun membangun kepercayaan. Kami percaya bahwa setiap lasan adalah komitmen. Presisi, ketahanan, dan kepuasan pelanggan adalah prioritas utama kami.</p>
+          <p>Dari rumah tinggal hingga proyek komersial — kami siap mewujudkan kebutuhan Anda dengan kualitas terbaik dan harga bersaing.</p>
+          <a href="#" class="btn" style="margin-top: 20px;">Baca Selengkapnya</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="color: white;">Apa Kata Pelanggan</h2>
+      </div>
+      <div class="testimonial">
+        <p>“Hasilnya rapi, sesuai gambar, dan timnya sangat responsif. Pengerjaan cepat dan harganya transparan. Recomended banget!”</p>
+        <div class="testimonial-author">— Pak Budi, Cibubur</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="kontak" class="cta">
+    <div class="container">
+      <h2>Butuh Solusi Las atau Fabrikasi?</h2>
+      <p>Tim kami siap membantu dari konsultasi hingga pemasangan!</p>
+      <div class="cta-form">
+        <input type="text" placeholder="Nama Anda" required>
+        <input type="tel" placeholder="WhatsApp" required>
+        <select>
+          <option>Pilih Jenis Proyek</option>
+          <option>Pagar Minimalis</option>
+          <option>Kanopi</option>
+          <option>Tangga Besi</option>
+          <option>Fabrikasi Custom</option>
+        </select>
+        <button class="btn">Kirim Permintaan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Abid Wijaya Teknik</h4>
+          <p>Presisi dalam Setiap Lasan. Solusi fabrikasi besi terpercaya sejak 2015.</p>
+          <div class="social-links">
+            <a href="#">📱</a>
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="#">Fabrikasi Besi</a></li>
+            <li><a href="#">Pagar & Kanopi</a></li>
+            <li><a href="#">Tangga & Railing</a></li>
+            <li><a href="#">Perbaikan & Modifikasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li>📍 Jl. Mekar Bakti, Kec. Panongan, Kabupaten Tangerang, Banten</li>
+            <li>📞  0821-1180-8600 </li>
+            <li>✉️ abidfaezyawijaya@email.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2025 Abid Wijaya Teknik. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank">💬</a>
+
+  <!-- JS untuk efek scroll header -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
